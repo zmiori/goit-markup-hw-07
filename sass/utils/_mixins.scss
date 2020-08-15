@@ -27,3 +27,9 @@
     line-height: $font-size;
     letter-spacing: $font-size;
 }
+
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+    display: $display;
+    position: $pos;
+    content: $content;
+}
