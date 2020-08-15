@@ -1,0 +1,46 @@
+.footer {
+    color: var(--dark-section-text-color);
+    background-color: #2F303A;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+}
+
+.footer > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+}
+
+.join-title,
+.signup-title {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.join-list {
+    display: flex;
+    justify-content: center;
+}
+
+
+.join-list .social-item {
+    width: 44px;
+    height: 44px;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+
+}
+/* ховер и фокус дублируют соцсети в секции Наша команда */
+
+.join-list .icon {
+    fill: var(--dark-section-text-color);
+}
+
+

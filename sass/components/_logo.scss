@@ -1,0 +1,30 @@
+.logo {
+    color: var(--primary-text-color);
+
+    font-family: "Raleway";
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.19;
+}
+
+.logo-web {
+    color: var(--accent-color);
+}
+
+// переписать через вложенность . nav &
+.nav .logo {
+    margin-top: 24px;
+    margin-right: 85px;
+    margin-bottom: 25px;;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+
+    color: var(--dark-section-text-color);
+
+    font-family: Raleway;
+    font-size: 26px;
+    line-height: 1.19;
+    text-transform: none;
+}

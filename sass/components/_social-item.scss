@@ -1,0 +1,41 @@
+
+.social-item:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* .social-item:hover,
+.social-item:focus, */
+.social-item-link:hover,
+.social-item-link:focus {
+    width: 44px;
+    height: 44px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+
+}
+
+.social-item-link {
+    display: block;
+    padding: 12px;
+
+    color: var(--primary-text-color);
+
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-item .icon {
+    fill: var(--social-item-bacic-color);
+
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+
+.social-item-link:hover .icon,
+.social-item-link:focus .icon {
+    fill: var(--dark-section-text-color);
+}
