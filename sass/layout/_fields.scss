@@ -4,18 +4,17 @@
 }
 
 .fields-list {
-    display: flex;
-    justify-content: center;
+    @include container-flex($justify-content: center);
 }
 
 .fields-list-item {
     position: relative;
-
     width: calc((100% - 60px) / 3);
-}
 
-.fields-list-item:not(:last-child) {
-    margin-right: 30px;
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+    
 }
 
 .fields-list-item-title {
@@ -26,12 +25,7 @@
     padding-top: 27px;
     padding-bottom: 27px;
 
-    color: var(--dark-section-text-color);
-    background-color: var(--opacity-section-color);
-
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.14;
-    text-align: center;
+    @include title-text($color: $dark-section-text-color, $font-size: $base-font-size, $line-height: 1.14);
+    background-color: $opacity-section-color;
     text-transform: uppercase;
 }

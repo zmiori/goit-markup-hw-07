@@ -1,44 +1,39 @@
 .our-team {
-    background-color: var(--secondary-bg-color);
+    background-color: $secondary-bg-color;
 }
 
 .our-team-list {
-    display: flex;
-    justify-content: center;
+    @include container-flex($justify-content: center);
 }
 
 .our-team-list-item {
     width: calc((100% - 90px) / 4);
-    background-color: var(--primary-bg-color);
+    background-color: $primary-bg-color;
 
     box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
     border-radius: 0px 0px 4px 4px;
+
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
 }
 
-.our-team-list-item:not(:last-child) {
-    margin-right: 30px;
-}
-
-.our-team-list-item > .worker-name {
+.worker-name {
     margin-top: 30px;
     margin-bottom: 10px;
 
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.19;
+    @include font-style(500px, 16px, 1.19, $letter-spacing: $base-letter-spacing);
     text-align: center;
 }
-.our-team-list-item > .position {
+.position {
     margin-bottom: 16px;
-    color: var(--secondary-text-color);
+    color: $secondary-text-color;
 
-    font-size: 16px;
-    line-height: 1.19;
+    @include font-style($font-weight: $base-font-weight, $font-size: 16px, $line-height: 1.19, $letter-spacing: $base-letter-spacing);
     text-align: center;
 }
 
 .social {
-    display: flex;
-    justify-content: center;
+    @include container-flex($justify-content: center);
     margin-bottom: 24px;
 }

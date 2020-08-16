@@ -28,6 +28,11 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0px;
 }
 
+h1, h2 {
+    @include title-text;
+    @include title-bottom;
+}
+
 b {
     font-weight: 700;
 }
@@ -39,9 +44,9 @@ input:focus {
 body {
     margin: 0;
     
-    color: var(--primary-text-color);
-    background-color: var(--primary-bg-color);
+    color: $primary-text-color;
+    background-color: $primary-bg-color;
 
-    font-family: "Roboto", sans-serif;
-    letter-spacing: 0.03em;
+    font-family: $base-font-family;
+    letter-spacing: $base-letter-spacing;
 }

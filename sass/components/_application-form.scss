@@ -11,14 +11,13 @@
       margin-left: auto;
       padding: 40px;
   
-      background-color: var(--primary-bg-color);
+      background-color: $primary-bg-color;
       box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
       border-radius: 4px;
   
       transform: scale(1);
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  
-  
+
   }
   
   .backdrop.is-hidden .application-form {
@@ -50,24 +49,31 @@
       border-radius: 50%;
       box-sizing: border-box;
       cursor: pointer;
-  }
-  
-  .application-form-close:hover,
-  .application-form-close:focus {
-      outline: none;
+
+      &:hover {
+            outline: none;
+      }
+
+      &:focus {
+        outline: none;
+    }
   }
   
   .icon-close-modal {
-      fill: var(--primary-text-color);
+      fill: $primary-text-color;
   
       transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      
+
+      .application-form-close:hover & {
+        fill: $accent-color;
+    }
+    
+      .application-form-close:focus & {
+        fill: $accent-color;
+    }
+    
   }
   
-  .application-form-close:hover .icon-close-modal,
-  .application-form-close:focus .icon-close-modal {
-      fill: var(--accent-color);
-  }
   
   .application-form-input-wrapper {
       position: relative;
@@ -93,11 +99,22 @@
   
   .application-form-input {
       padding-left: 42px;
+
+      &::placeholder {
+        opacity: 0;
+    }
+
+    &:not(:placeholder-shown) {
+        outline: none;
+        border-color: $accent-color;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: $accent-color;
+    }
   }
   
-  .application-form-input::placeholder {
-      opacity: 0;
-  }
   
   .application-form-input + .application-form-label {
       position: absolute;
@@ -108,35 +125,54 @@
       transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
       color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
-  .application-form-label + .icon {
-      position: absolute;
-  
-      top: 11px;
-      left: 16px;
-  
-      fill: var(--primary-text-color);
-  
-      transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  .icon {
+
+    .application-form-label + & {
+        position: absolute;
+    
+        top: 11px;
+        left: 16px;
+    
+        fill: $primary-text-color;
+    
+        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .application-form-input:focus ~ & {
+        fill: $accent-color;
+    }
+
+    .application-form-input:not(:placeholder-shown) ~ & {
+        fill: $accent-color;
+    } 
+
   }
   
-  .application-form-input:focus,
-  .application-form-input:not(:placeholder-shown) {
-      outline: none;
-      border-color: var(--accent-color);
-  }
+//   .application-form-label + .icon {
+//       position: absolute;
   
-  .application-form-input:focus ~ .icon, 
-  .application-form-input:not(:placeholder-shown) ~ .icon {
-      fill: var(--accent-color);
-  }
+//       top: 11px;
+//       left: 16px;
+  
+//       fill: $primary-text-color;
+  
+//       transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+//   }
+  
+
+  
+//   .application-form-input:focus ~ .icon, 
+//   .application-form-input:not(:placeholder-shown) ~ .icon {
+//       fill: $accent-color;
+//   }
   
   .application-form-input:focus + .application-form-label,
   .application-form-input:not(:placeholder-shown) + .application-form-label {
       transform: translate(-28px, -31px);
       font-size: 12px;
   
-      color: var(--accent-color);
+      color: $accent-color;
   }
   
   .application-form-input:focus.application-form-input::placeholder {
@@ -149,50 +185,34 @@
       padding: 12px 16px;
   
       resize: none;
+
+      &:focus {
+        outline: none;
+    }
+    &::placeholder {
+        font-family: $base-font-family;
+        @include font-style(400, 14px, 1.14, 0.01em) 
+    }
+
   }
   
-  .application-form-comment:focus {
-      outline: none;
-  }
-  
-  .application-form-comment::placeholder,
   .application-form-label,
   .application-form-input::placeholder {
-      font-family: Roboto;
-      font-weight: 400px;
-      font-size: 14px;
-      line-height: 1.14;
-      letter-spacing: 0.01em;
-      
+      font-family: $base-font-family;
+      @include font-style(400, 14px, 1.14, 0.01em)
   }
   .agreement-accept {
       position: relative;
-      display: flex;
-      align-items: center;
-  
+      @include container-flex($align-items: center);
       margin-bottom: 30px;
-  
-      display: block;
   }
   
   .agreement-accept-text {
-      font-size: 14px;
+      font-size: $base-font-size;
       line-height: 1.71;
-      letter-spacing: 0.03em;
-  }
-  
-  .agreement-accept-text a {
-      color: var(--accent-color);
-  }
-  
-  .agreement-accept-checkbox {
-      position: absolute;
-      z-index: -1;
-      opacity: 0;
-    }
-  
-    /* ПСЕВДОЭЛЕМЕНТ НЕЛЬЗЯ АНИМИРОВАТЬ */
-    .agreement-accept-text::before {
+      letter-spacing: $base-letter-spacing;
+
+      &::before {
         display: inline-block;
         width: 16px;
         height: 16px;
@@ -205,9 +225,21 @@
   
         content: "";
       }
+  }
+  
+  .agreement-accept-text a {
+      color: $accent-color;
+  }
+  
+  .agreement-accept-checkbox {
+      position: absolute;
+      z-index: -1;
+      opacity: 0;
+    }
+  
   
       .agreement-accept-checkbox:checked + .agreement-accept-text::before {
-          background-color: var(--accent-color);
+          background-color: $accent-color;
   
           background-image: url(../images/checked-modal.svg);
           background-repeat: no-repeat;
@@ -216,8 +248,4 @@
   
           border-radius: 2px;
       }
-
-      .application-form .btn-primary {
-        padding: 10px 55px;
-    }
   

@@ -1,5 +1,5 @@
 .subscribe-form-wrapper {
-    display: flex;
+    @include container-flex;
     margin-top: 20px;
 }
 
@@ -9,24 +9,19 @@
 }
 
 
-.subscribe-form-wrapper .btn-primary {
-    display: flex;
-}
-
 .subscribe-email {
     flex-grow: 2;
     margin-right: 12px;
     padding-left: 16px;
 
     background-color: transparent;
-    color: var(--dark-section-text-color);
+    color: $dark-section-text-color;
 
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
     border-radius: 4px;
 }
-
 
 
 .icon-send {
